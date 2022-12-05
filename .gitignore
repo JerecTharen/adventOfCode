@@ -1,8 +1,14 @@
+#NodeJS
 node_modules
-*.log
-ignore_data
 
+#C-Sharp
 bin
 obj
 
+#Python
+__pycache__
+
+#Misc thins to ignore
+*.log
+ignore_data
 .vscode
