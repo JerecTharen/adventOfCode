@@ -1,0 +1,68 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>A Basic HTML5 Template</title>
+  <meta name="description" content="HTML5 Boilerplate">
+</head>
+
+<body>
+  <ul id="htmlLog"></ul>
+  <hr />
+  <textarea id="puzzleInput"></textarea><button onclick="doMain()">CLICK</button>
+
+  <!-- your html content here... -->
+  <script>
+    function htmlLog(text){
+      console.log('Logging: ', text);
+      if(typeof text === typeof {}){
+        try {
+          document.getElementById('htmlLog').innerHTML += `<li>${JSON.stringify(text)}</li>`;
+          return;
+        } catch (error) {
+          console.error(error);
+          document.getElementById('htmlLog').innerHTML += `<li style="color:red;">${error?.message ?? 'UNKNOWN ERROR'}</li>`;
+          return;
+        }
+      }
+      document.getElementById('htmlLog').innerHTML += `<li>${text}</li>`;
+    }
+    function getInput(){
+      return document.getElementById('puzzleInput').value;
+    }
+    /*
+    =========================================================Your JavaScript goes below here=========================================================
+    */
+   htmlLog('Welcome to the HTML 5 template for coding with Javascript!');
+   function doMain(){
+       htmlLog(getInput())
+        // run data through a loop of everyline
+        let runningSum = 0  
+        let runningTotals = [] 
+        getInput().split('\n').forEach(line => {
+            // add line to running sum
+            if (line.trim()!==''){
+                runningSum += Number(line)
+            }
+            // if empty line add sum to result
+            else {
+                runningTotals.push(runningSum)
+                runningSum = 0
+            }
+        });
+        runningTotals.push(runningSum);
+        // return highest sum after loop
+        htmlLog(Math.max(...runningTotals));        //number.MAX_VALUE()
+        let newTotalArray = runningTotals.sort(function(a,b){return b-a});
+        let NewTotalArrayTotal = newTotalArray[0] + newTotalArray[1] + newTotalArray[2];
+        htmlLog(NewTotalArrayTotal)
+    }
+    /*
+    ==========================================================Your JavaScript goes above here==========================================================
+    */
+  </script>
+</body>
+</html>

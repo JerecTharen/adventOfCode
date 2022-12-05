@@ -1,0 +1,6 @@
+[submodule "CombinedDays/ajm-gov/Advent-of-Code"]
+	path = CombinedDays/ajm-gov/Advent-of-Code
+	url = https://github.com/ajm-gov/Advent-of-Code.git
+[submodule "CombinedDays/DeanTown/adventofcode"]
+	path = CombinedDays/DeanTown/adventofcode
+	url = https://github.com/DeanTown/adventofcode.git
