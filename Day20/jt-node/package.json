@@ -1,0 +1,19 @@
+{
+  "name": "plain-nodejs",
+  "version": "1.0.0",
+  "description": "Just a simple NodeJS cli app boilerplate with TDD built in",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "TDD",
+    "NodeJS",
+    "CLI"
+  ],
+  "author": "JerecTharen",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^29.4.3"
+  }
+}
