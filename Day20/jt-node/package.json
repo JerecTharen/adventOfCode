@@ -4,7 +4,8 @@
   "description": "Just a simple NodeJS cli app boilerplate with TDD built in",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js"
   },
   "keywords": [
     "TDD",
