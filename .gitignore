@@ -8,6 +8,9 @@ obj
 #Python
 __pycache__
 
+#Rust
+target
+
 #Misc thins to ignore
 *.log
 ignore_data
