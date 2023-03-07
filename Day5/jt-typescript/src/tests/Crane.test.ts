@@ -22,4 +22,15 @@ move 1 from 1 to 2
 
         expect(actualTopStacks).toBe(EXPECTED_TOP_STACKS);
     });
+    it('should be able to follow instructions and produce the expected result from the example input for part 2', ()=>{
+        const EXPECTED_TOP_STACKS = 'MCD';
+        const isMover9001 = true;
+
+        let stubParser = new Parser(TEST_INPUT);
+        let fakeCrane = new Crane(stubParser, isMover9001);
+        fakeCrane.followInstructions();
+        let actualTopStacks = fakeCrane.getTopCrates();
+
+        expect(actualTopStacks).toBe(EXPECTED_TOP_STACKS);
+    });
 });
