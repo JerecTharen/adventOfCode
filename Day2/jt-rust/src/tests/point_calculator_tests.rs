@@ -185,3 +185,89 @@ pub mod get_round_points{
         assert_eq!(actual_points, EXPECTED_POINTS);
     }
 }
+
+pub mod get_play_option_from_outcome{
+    use crate::utils::point_calculator::{PlayOptions, get_play_option_from_outcome, Outcomes};
+
+    #[test]
+    fn test_get_play_option_from_outcome_returns_rock_for_draw(){
+        let stub_opponent_option = PlayOptions::ROCK;
+        let stub_outcome = Outcomes::DRAW;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::ROCK));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_paper_for_draw(){
+        let stub_opponent_option = PlayOptions::PAPER;
+        let stub_outcome = Outcomes::DRAW;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::PAPER));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_scissors_for_draw(){
+        let stub_opponent_option = PlayOptions::SCISSORS;
+        let stub_outcome = Outcomes::DRAW;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::SCISSORS));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_rock_for_win(){
+        let stub_opponent_option = PlayOptions::SCISSORS;
+        let stub_outcome = Outcomes::WIN;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::ROCK));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_rock_for_lose(){
+        let stub_opponent_option = PlayOptions::PAPER;
+        let stub_outcome = Outcomes::LOSE;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::ROCK));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_paper_for_win(){
+        let stub_opponent_option = PlayOptions::ROCK;
+        let stub_outcome = Outcomes::WIN;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::PAPER));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_paper_for_lose(){
+        let stub_opponent_option = PlayOptions::SCISSORS;
+        let stub_outcome = Outcomes::LOSE;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::PAPER));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_scissors_for_win(){
+        let stub_opponent_option = PlayOptions::PAPER;
+        let stub_outcome = Outcomes::WIN;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::SCISSORS));
+    }
+    #[test]
+    fn test_get_play_option_from_outcome_returns_scissors_for_lose(){
+        let stub_opponent_option = PlayOptions::ROCK;
+        let stub_outcome = Outcomes::LOSE;
+
+        let actual_player_option = get_play_option_from_outcome(&stub_opponent_option, stub_outcome);
+
+        assert!(matches!(actual_player_option, PlayOptions::SCISSORS));
+    }
+}
